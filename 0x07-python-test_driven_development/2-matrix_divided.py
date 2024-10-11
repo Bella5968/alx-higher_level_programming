@@ -1,37 +1,26 @@
 #!/usr/bin/python3
-"""Module for matrix_divided method."""
+"""Module for say_my_name method."""
 
 
-def matrix_divided(matrix, div):
-    """Divides all elements of matrix by div.
+def say_my_name(first_name, last_name=""):
+    """Method for printing first and last name.
+
     Args:
-        matrix: List of lists containing int or float
-        div: number to divide matrix by
-    Returns:
-        list: List of lists representing divided matrix.
-    Raises:
-        TypeError: If matrix is not list of lists containing int or float.
-        TypeError: If sublists are not all same size.
-        TypeError: If div is not int or float.
-        ZeroDivisionError: If div is zero.
-    """
-    if not isinstance(div, (int, float)):
-        raise TypeError("div must be a number")
-    if not isinstance(matrix, list) or len(matrix) == 0:
-        raise TypeError("matrix must be a matrix (list of lists) " +
-                        "of integers/floats")
-    for row in matrix:
-        if not isinstance(row, list) or len(row) == 0:
-            raise TypeError("matrix must be a matrix (list of lists) " +
-                            "of integers/floats")
-        if len(row) != len(matrix[0]):
-            raise TypeError("Each row of the matrix must have the same size")
-        for x in row:
-            if not isinstance(x, (int, float)):
-                raise TypeError("matrix must be a matrix (list of lists) " +
-                                "of integers/floats")
-    return [[round(x / div, 2) for x in row] for row in matrix]
+        first_name: first name string.
+        last_name: last name string.
 
-if __name__ == "__main__":
+    Raises:
+        TypeError: If first_name or last_name are not strings.
+    """
+    if not isinstance(first_name, str):
+        raise TypeError("first_name must be a string")
+
+    if not isinstance(last_name, str):
+        raise TypeError("last_name must be a string")
+
+    print("My name is {:s} {:s}".format(first_name, last_name))
+
+
+if __name__ == "__main__":  # <- Now there are 2 blank lines here
     import doctest
-    doctest.testfile("tests/2-matrix_divided.txt")
+    doctest.testfile("tests/3-say_my_name.txt")

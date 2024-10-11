@@ -21,6 +21,7 @@ def text_indentation(text):
 
     print(text, end="")
 
-if __name__ == "__main__":
+
+if __name__ == "__main__":  # <- Now there are 2 blank lines here
     import doctest
     doctest.testfile("tests/5-text_indentation.txt")

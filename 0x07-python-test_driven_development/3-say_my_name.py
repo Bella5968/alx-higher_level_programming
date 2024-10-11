@@ -20,6 +20,7 @@ def say_my_name(first_name, last_name=""):
 
     print("My name is {:s} {:s}".format(first_name, last_name))
 
-if __name__ == "__main__":
+
+if __name__ == "__main__":  # <- Now there are 2 blank lines here
     import doctest
     doctest.testfile("tests/3-say_my_name.txt")

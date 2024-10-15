@@ -1,0 +1,35 @@
+"""
+12-pascal_triangle.txt
+"""
+
+from 12-pascal_triangle import pascal_triangle
+
+def test_pascal_triangle():
+    """
+    Test cases for the pascal_triangle function.
+    """
+    # Test for n = 0
+    assert pascal_triangle(0) == []
+
+    # Test for n = 1
+    assert pascal_triangle(1) == [[1]]
+
+    # Test for n = 2
+    assert pascal_triangle(2) == [[1], [1, 1]]
+
+    # Test for n = 3
+    assert pascal_triangle(3) == [[1], [1, 1], [1, 2, 1]]
+
+    # Test for n = 4
+    assert pascal_triangle(4) == [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1]]
+
+    # Test for n = 5
+    assert pascal_triangle(5) == [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
+
+    # Test for n = 6
+    assert pascal_triangle(6) == [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1], [1, 5, 10, 10, 5, 1]]
+
+# Running the test function
+if __name__ == "__main__":
+    test_pascal_triangle()
+    print("All tests passed!")

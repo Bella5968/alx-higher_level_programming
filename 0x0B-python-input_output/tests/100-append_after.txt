@@ -1,0 +1,67 @@
+"""
+100-append_after.txt
+"""
+
+import os
+from 100-append_after import append_after
+
+def test_append_after():
+    """
+    Test cases for the append_after function.
+    """
+    filename = 'append_after_100.txt'
+
+    # Ensure the file exists before the test
+    with open(filename, 'w') as f:
+        f.write("At Holberton School,\n")
+        f.write("Python is really important,\n")
+        f.write("But it can be very hard if:\n")
+        f.write("- You don't get all Pythonic tricks\n")
+        f.write("- You don't have strong C knowledge.\n")
+
+    # Run append_after function
+    append_after(filename, "Python", "\"C is fun!\"\n")
+
+    # Read the file and check the output
+    with open(filename, 'r') as f:
+        content = f.readlines()
+
+    # Check if the string is inserted correctly
+    expected_output = [
+        "At Holberton School,\n",
+        "Python is really important,\n",
+        "\"C is fun!\"\n",
+        "But it can be very hard if:\n",
+        "- You don't get all Pythonic tricks\n",
+        "\"C is fun!\"\n",
+        "- You don't have strong C knowledge.\n"
+    ]
+
+    assert content == expected_output, "Test failed: content does not match expected output."
+
+    # Check behavior when running the function again
+    append_after(filename, "Python", "\"C is fun!\"\n")
+
+    # Read the file again to check the output
+    with open(filename, 'r') as f:
+        content = f.readlines()
+
+    # Check if the string is inserted again correctly
+    expected_output_after_second_run = [
+        "At Holberton School,\n",
+        "Python is really important,\n",
+        "\"C is fun!\"\n",
+        "\"C is fun!\"\n",
+        "But it can be very hard if:\n",
+        "- You don't get all Pythonic tricks\n",
+        "\"C is fun!\"\n",
+        "\"C is fun!\"\n",
+        "- You don't have strong C knowledge.\n"
+    ]
+
+    assert content == expected_output_after_second_run, "Test failed: content does not match expected output after second run."
+
+# Running the test function
+if __name__ == "__main__":
+    test_append_after()
+    print("All tests passed!")

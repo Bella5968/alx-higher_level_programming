@@ -590,6 +590,7 @@ given"
         r2.update(**r1_dictionary)
         self.assertEqual(str(r1), str(r2))
         self.assertNotEqual(r1, r2)
+        
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     unittest.main()
